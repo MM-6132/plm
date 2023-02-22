@@ -1,4 +1,4 @@
-import {Button} from "@mui/material";
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 function Piece() {
     return (
@@ -6,10 +6,27 @@ function Piece() {
             <div>
 
             </div>
-            <div>
-                <Button variant="contained" disabled>
-                    Disabled
-                </Button>
+            <div className="grid-quatro-line">
+                <div className="button-menu">
+                    <PlayCircleIcon className="play-circle-icon"/>
+                    <p>Folder conception</p>
+                </div>
+                <div className="button-menu">
+                    <PlayCircleIcon className="play-circle-icon"/>
+                    <p>Folder design</p>
+                </div>
+                <div className="button-menu">
+                    <PlayCircleIcon className="play-circle-icon"/>
+                    <p>Folder production</p>
+                </div>
+                <div className="button-menu">
+                    <PlayCircleIcon className="play-circle-icon"/>
+                    <p>MRO</p>
+                </div>
+                <div className="button-menu">
+                    <PlayCircleIcon className="play-circle-icon"/>
+                    <p>All documents</p>
+                </div>
             </div>
 
         </div>
