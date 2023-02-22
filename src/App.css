@@ -1,0 +1,55 @@
+.App {
+    background-color: #004A98;
+    background-image: repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 20px,
+            rgba(54, 54, 54, 0.25) 20px,
+            rgba(54, 54, 54, 0.25) 22px
+    ),
+    repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 20px,
+            rgba(54, 54, 54, 0.25) 20px,
+            rgba(54, 54, 54, 0.25) 22px
+    );
+    color: white;
+    min-height: 100vh;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+.ControlCenter {
+    min-height: 100vh;
+    display: grid;
+}
+
+.ContainerControlCenter {
+    padding-top: 20px;
+}
+
+.Home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
