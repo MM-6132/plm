@@ -1,41 +1,33 @@
 .App {
-    background-color: #004A98;
+    background-color: #00205b;
     background-image: repeating-linear-gradient(
             90deg,
             transparent,
             transparent 20px,
-            rgba(54, 54, 54, 0.25) 20px,
-            rgba(54, 54, 54, 0.25) 22px
+            rgb(154, 154, 154,0.25) 20px,
+            rgb(154, 154, 154,0.25) 22px
     ),
     repeating-linear-gradient(
             0deg,
             transparent,
             transparent 20px,
-            rgba(54, 54, 54, 0.25) 20px,
-            rgba(54, 54, 54, 0.25) 22px
+            rgb(154, 154, 154,0.25) 20px,
+            rgb(154, 154, 154,0.25) 22px
     );
     color: white;
     min-height: 100vh;
 }
 
-.App-logo {
-    height: 40vmin;
+.app-logo {
+    margin-top: 20px;
+    max-height: 100px;
     pointer-events: none;
+    border-radius: 12px;
 }
-
-.App-link {
-    color: #61dafb;
-}
-
-.ControlCenter {
-    min-height: 100vh;
+.grid-duo {
     display: grid;
+    grid-template-columns: 1fr 1fr;
 }
-
-.ContainerControlCenter {
-    padding-top: 20px;
-}
-
 .Home {
     min-height: 100vh;
     display: flex;

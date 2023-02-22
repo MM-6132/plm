@@ -1,6 +1,7 @@
 import './App.css';
 import {Home} from "./containers/Home";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Piece from "./containers/Piece";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path='*' element={<Home/>}/>
+                <Route path='/piece' element={<Piece/>}/>
             </Routes>
           </BrowserRouter>
         </header>

@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -23,6 +24,7 @@ function Copyright(props) {
         </Typography>
     );
 }
+
 export const Home = () => {
     const navigate = useNavigate();
     const theme = createTheme();
@@ -36,28 +38,29 @@ export const Home = () => {
     };
     return (
         <div className="Home">
-            <img src="./logo192.png" style={{height: "50%", borderRadius:"20px"}} className="App-logo" alt="logo"/>
+            <img src="./logo192.png" className="app-logo" alt="logo"/>
             <p>
                 Product Life Management
             </p>
             <ThemeProvider theme={theme}>
-                <Container style={{backgroundColor:"white", borderRadius:"10px", color:"black"}} component="main" maxWidth="xs">
-                    <CssBaseline />
+                <Container style={{backgroundColor: "white", borderRadius: "10px", color: "black"}} component="main"
+                           maxWidth="xs">
+                    <CssBaseline/>
                     <Box
                         sx={{
-                            marginTop: 8,
+                            marginTop: 5,
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
                         }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                            <LockOutlinedIcon />
+                        <Avatar sx={{bgcolor: 'secondary.main'}}>
+                            <LockOutlinedIcon/>
                         </Avatar>
-                        <Typography component="h1" variant="h5">
+                        <Typography component="h1" variant="h6">
                             Sign in
                         </Typography>
-                        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                        <Box component="form" onSubmit={handleSubmit} noValidate>
                             <TextField
                                 margin="normal"
                                 required
@@ -79,14 +82,15 @@ export const Home = () => {
                                 autoComplete="current-password"
                             />
                             <FormControlLabel
-                                control={<Checkbox value="remember" color="success" />}
+                                control={<Checkbox value="remember" color="success"/>}
                                 label="Remember me"
                             />
                             <Button
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                sx={{mt: 1, mb: 1}}
+                                onClick={() => navigate("/piece")}
                             >
                                 Sign In
                             </Button>
@@ -104,7 +108,7 @@ export const Home = () => {
                             </Grid>
                         </Box>
                     </Box>
-                    <Copyright sx={{ mt: 8, mb: 4 }} />
+                    <Copyright sx={{mt: 4, mb: 2}}/>
                 </Container>
             </ThemeProvider>
 
