@@ -25,7 +25,7 @@ function Copyright(props) {
     );
 }
 
-export const Home = () => {
+export const Login = () => {
     const navigate = useNavigate();
     const theme = createTheme();
     const handleSubmit = (event) => {
@@ -90,7 +90,7 @@ export const Home = () => {
                                 fullWidth
                                 variant="contained"
                                 sx={{mt: 1, mb: 1}}
-                                onClick={() => navigate("/piece")}
+                                onClick={() => navigate("/accueil")}
                             >
                                 Sign In
                             </Button>
