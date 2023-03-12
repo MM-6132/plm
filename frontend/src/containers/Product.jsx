@@ -26,12 +26,12 @@ function Product() {
             </div>
             <div className="grid-quatro-line">
                 <div></div>
-                <div className="button-menu" onClick={() => navigate("/piece")}>
+                <div className="button-menu" onClick={() => navigate("/findProduct")}>
                     <PlayCircleIcon className="play-circle-icon"/>
                     <p>Find a product</p>
                 </div>
-                <div className="button-menu">
-                    <PlayCircleIcon className="play-circle-icon"/>
+                <div className="button-menu" onClick={() => navigate("/createProduct")}>
+                    <PlayCircleIcon className="play-circle-icon" />
                     <p>Create a new product</p>
                 </div>
                 <div className="button-menu">
