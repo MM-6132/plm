@@ -1,4 +1,5 @@
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import React from "react";
 
 function Piece() {
     return (
@@ -31,6 +32,13 @@ function Piece() {
                     <PlayCircleIcon className="play-circle-icon"/>
                     <p>All documents</p>
                 </div>
+            </div>
+            <div className="breadcrumbs">
+                <a href="/accueil">Home</a>
+                <span className="separator">›</span>
+                <a href="/Product/">Product</a>
+                <span className="separator">›</span>
+                <a href="/piece/">Find a product</a>
             </div>
 
         </div>

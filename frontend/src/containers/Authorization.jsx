@@ -42,6 +42,11 @@ function Authorization() {
                     <p>Request of modification</p>
                 </div>
             </div>
+            <div className="breadcrumbs">
+                <a href="/accueil">Home</a>
+                <span className="separator">›</span>
+                <a href="/Authorization/">Authorization</a>
+            </div>
 
         </div>
     );

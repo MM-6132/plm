@@ -39,6 +39,9 @@ function Accueil() {
                     <p>Authorization</p>
                 </div>
             </div>
+            <div className="breadcrumbs">
+                <a href="/accueil">Home</a>
+            </div>
 
         </div>
     );

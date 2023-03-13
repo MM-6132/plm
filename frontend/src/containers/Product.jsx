@@ -39,6 +39,11 @@ function Product() {
                     <p>Modify an existing product</p>
                 </div>
             </div>
+            <div className="breadcrumbs">
+                <a href="/accueil">Home</a>
+                <span className="separator">›</span>
+                <a href="/Product/">Product</a>
+            </div>
 
         </div>
     );

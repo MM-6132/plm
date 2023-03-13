@@ -115,3 +115,27 @@
         transform: rotate(360deg);
     }
 }
+
+.breadcrumbs {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #999;
+    transition: color 0.2s;
+}
+
+.breadcrumbs a:hover {
+    color: #555;
+}
+
+.breadcrumbs .separator {
+    margin: 0 5px;
+}
+
+.breadcrumbs .current-page {
+    font-weight: bold;
+}
