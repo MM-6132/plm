@@ -121,11 +121,11 @@ export default function FindProduct() {
                 </div>
             </div>
             <div className="breadcrumbs">
-                <a href="/accueil">Home</a>
+                <span onClick={() => navigate("/accueil")}>Home</span>
                 <span className="separator">›</span>
-                <a href="/Product/">Product</a>
+                <span onClick={() => navigate("/Product/")}>Product</span>
                 <span className="separator">›</span>
-                <a href="/findProduct/">Find a product</a>
+                <span onClick={() => navigate("/findProduct/")}>Find a product</span>
             </div>
 
         </div>

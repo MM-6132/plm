@@ -40,7 +40,7 @@ function Accueil() {
                 </div>
             </div>
             <div className="breadcrumbs">
-                <a href="/accueil">Home</a>
+                <span onClick={() => navigate("/accueil")}>Home</span>
             </div>
 
         </div>

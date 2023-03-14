@@ -43,9 +43,9 @@ function Authorization() {
                 </div>
             </div>
             <div className="breadcrumbs">
-                <a href="/accueil">Home</a>
+                <span onClick={() => navigate("/accueil")}>Home</span>
                 <span className="separator">›</span>
-                <a href="/Authorization/">Authorization</a>
+                <span onClick={() => navigate("/Authorization/")}>Authorization</span>
             </div>
 
         </div>

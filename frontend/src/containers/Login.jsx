@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import {useState} from "react";
 
 function Copyright(props) {
     return (
@@ -28,24 +29,31 @@ function Copyright(props) {
 export const Login = () => {
     const navigate = useNavigate();
     const theme = createTheme();
-    const handleSubmit = (event) => {
+    const [users, setUsers] = useState([
+        {password:"azerty", username:"lucas"}
+    ])
+    const [credentials,setCredentials] = useState(false)
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        const username: data.get('username');
-        const password: data.get('password');
         console.log({
             username: data.get('username'),
             password: data.get('password'),
         });
-        const user = await db.collection('users').findOne({ username: req.body.username });
+        users.map((u) => {
+            if(u.password === data.get('password') && u.username === data.get('username'))
+                navigate('/accueil')
+        })
+        setCredentials(true)
+        //const user = await db.collection('users').findOne({username: req.body.username});
 
-        const isPasswordValid = await bcrypt.compare(req.body.password, password);
+        //const isPasswordValid = await bcrypt.compare(req.body.password, password);
 
-        if (isPasswordValid) {
+        //if (isPasswordValid) {
             // Password is valid
-        } else {
+        //} else {
             // Password is invalid
-        }
+        //}
     };
     return (
         <div className="Home">
@@ -71,7 +79,10 @@ export const Login = () => {
                         <Typography component="h1" variant="h6">
                             Sign in
                         </Typography>
+
                         <Box component="form" onSubmit={handleSubmit} noValidate>
+                            {credentials &&
+                            <p style={{color:"red", fontSize:"15px"}}>*Username or password incorrect</p>}
                             <TextField
                                 margin="normal"
                                 required
@@ -101,7 +112,6 @@ export const Login = () => {
                                 fullWidth
                                 variant="contained"
                                 sx={{mt: 1, mb: 1}}
-                                onClick={() => navigate("/accueil")}
                             >
                                 Sign In
                             </Button>

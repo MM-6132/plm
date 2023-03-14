@@ -36,11 +36,11 @@ function Piece() {
                 </div>
             </div>
             <div className="breadcrumbs">
-                <a href="/accueil">Home</a>
+                <span onClick={() => navigate("/accueil")}>Home</span>
                 <span className="separator">›</span>
-                <a href="/Product/">Product</a>
+                <span onClick={() => navigate("/Product/")}>Product</span>
                 <span className="separator">›</span>
-                <a href="/piece/">Find a product</a>
+                <span onClick={() => navigate("/piece/")}>Find a product</span>
             </div>
 
         </div>
