@@ -120,6 +120,13 @@ export default function FindProduct() {
                     </Button>
                 </div>
             </div>
+            <div className="breadcrumbs">
+                <a href="/accueil">Home</a>
+                <span className="separator">›</span>
+                <a href="/Product/">Product</a>
+                <span className="separator">›</span>
+                <a href="/findProduct/">Find a product</a>
+            </div>
 
         </div>
     );

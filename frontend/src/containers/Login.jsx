@@ -31,10 +31,21 @@ export const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
+        const username: data.get('username');
+        const password: data.get('password');
         console.log({
             username: data.get('username'),
             password: data.get('password'),
         });
+        const user = await db.collection('users').findOne({ username: req.body.username });
+
+        const isPasswordValid = await bcrypt.compare(req.body.password, password);
+
+        if (isPasswordValid) {
+            // Password is valid
+        } else {
+            // Password is invalid
+        }
     };
     return (
         <div className="Home">

@@ -2,7 +2,7 @@ const multer = require('multer');
 const sharp = require('sharp');
 const Tour = require('./../models/tourModel');
 const catchAsync = require('./../utils/catchAsync');
-const factory = require('./handlerFactory');
+const factory = require('./produitsController');
 const AppError = require('./../utils/appError');
 
 const multerStorage = multer.memoryStorage();

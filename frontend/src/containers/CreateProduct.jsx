@@ -107,6 +107,13 @@ function CreateProduct() {
                 </div>
 
             </div>
+            <div className="breadcrumbs">
+                <a href="/accueil">Home</a>
+                <span className="separator">›</span>
+                <a href="/Product/">Product</a>
+                <span className="separator">›</span>
+                <a href="/createProduct/">Create a product</a>
+            </div>
 
         </div>
     );
