@@ -8,6 +8,7 @@ import Product from "./containers/Product";
 import Authorization from "./containers/Authorization";
 import CreateProduct from "./containers/CreateProduct";
 import FindProduct from "./containers/FindProduct";
+import SearchFile from "./containers/SearchFile";
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                         <Route path='/authorization' element={<><NavBar/><Authorization/></>}/>
                         <Route path='/createProduct' element={<><NavBar/><CreateProduct/></>}/>
                         <Route path='/findProduct' element={<><NavBar/><FindProduct/></>}/>
+                        <Route path='/searchFile' element={<><NavBar/><SearchFile/></>}/>
                     </Routes>
                 </BrowserRouter>
             </header>

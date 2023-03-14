@@ -1,7 +1,9 @@
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
 function Piece() {
+    const navigate = useNavigate();
     return (
         <div className="grid-duo">
             <div className="center-element">
@@ -28,7 +30,7 @@ function Piece() {
                     <PlayCircleIcon className="play-circle-icon"/>
                     <p>MRO</p>
                 </div>
-                <div className="button-menu">
+                <div className="button-menu" onClick={() => navigate('/searchFile')}>
                     <PlayCircleIcon className="play-circle-icon"/>
                     <p>All documents</p>
                 </div>
