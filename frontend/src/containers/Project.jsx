@@ -2,9 +2,9 @@ import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import {useNavigate} from "react-router-dom";
 import React, {useEffect} from "react";
 
-function Product() {
+function Project() {
     const navigate = useNavigate();
-    const [text, setText] = React.useState("Quel produit recherchez-vous ?");
+    const [text, setText] = React.useState("Quel projet recherchez-vous ?");
     const [index, setIndex] = React.useState(0);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ function Product() {
             <div className="breadcrumbs">
                 <span onClick={() => navigate("/accueil")}>Home</span>
                 <span className="separator">›</span>
-                <span onClick={() => navigate("/product/")}>Product</span>
+                <span onClick={() => navigate("/project")}>Product</span>
             </div>
             <div className="grid-duo">
                 <div className="center-element">
@@ -32,17 +32,17 @@ function Product() {
                 </div>
                 <div className="grid-quatro-line">
                     <div></div>
-                    <div className="button-menu" onClick={() => navigate("/findProduct")}>
+                    <div className="button-menu" onClick={() => navigate("/findProject")}>
                         <PlayCircleIcon className="play-circle-icon"/>
-                        <p>Find a product</p>
+                        <p>Find a project</p>
                     </div>
-                    <div className="button-menu" onClick={() => navigate("/createProduct")}>
+                    <div className="button-menu" onClick={() => navigate("/createProject")}>
                         <PlayCircleIcon className="play-circle-icon"/>
-                        <p>Create a new product</p>
+                        <p>Create a new project</p>
                     </div>
                     <div className="button-menu">
                         <PlayCircleIcon className="play-circle-icon"/>
-                        <p>Modify an existing product</p>
+                        <p>Modify an existing project</p>
                     </div>
                 </div>
             </div>
@@ -50,4 +50,4 @@ function Product() {
     );
 }
 
-export default Product;
+export default Project;

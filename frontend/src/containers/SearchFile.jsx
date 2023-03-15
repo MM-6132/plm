@@ -17,8 +17,8 @@ function SearchFile() {
                 borderRadius: "10px",
                 padding: "10px"
             }}>
-                <Typography variant="h2" gutterBottom>
-                    Search a file
+                <Typography variant="h2" >
+                    All documents
                 </Typography>
             </div>
             <div style={{
@@ -41,7 +41,7 @@ function SearchFile() {
                     <Button variant="outlined">Phase de développement</Button>
 
                 </div>
-                <div style={{maxHeight:"520px", overflow:"hidden"}}>
+                <div style={{maxHeight:"620px", overflow:"hidden"}}>
                     <Typography variant="h6" style={{textDecoration:"underline"}} >
                         Aperçu :
                     </Typography>

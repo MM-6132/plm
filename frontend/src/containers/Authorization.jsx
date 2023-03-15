@@ -18,36 +18,39 @@ function Authorization() {
     const animatedText = text.slice(0, index);
 
     return (
-        <div className="grid-duo">
-            <div className="center-element">
-                <div className="window">
-                    <p className="progressive-text">{animatedText}</p>
-                </div>
-            </div>
-            <div className="grid-quatro-line" >
-                <div className="button-menu" onClick={() => navigate("/")}>
-                    <PlayCircleIcon className="play-circle-icon"/>
-                    <p>Add</p>
-                </div>
-                <div className="button-menu">
-                    <PlayCircleIcon className="play-circle-icon"/>
-                    <p>Modify</p>
-                </div>
-                <div className="button-menu">
-                    <PlayCircleIcon className="play-circle-icon"/>
-                    <p>Delete</p>
-                </div>
-                <div className="button-menu" onClick={() => navigate("/")}>
-                    <PlayCircleIcon className="play-circle-icon"/>
-                    <p>Request of modification</p>
-                </div>
-            </div>
+        <div>
             <div className="breadcrumbs">
                 <span onClick={() => navigate("/accueil")}>Home</span>
                 <span className="separator">›</span>
                 <span onClick={() => navigate("/Authorization/")}>Authorization</span>
             </div>
+            <div className="grid-duo">
+                <div className="center-element">
+                    <div className="window">
+                        <p className="progressive-text">{animatedText}</p>
+                    </div>
+                </div>
+                <div className="grid-quatro-line">
+                    <div className="button-menu" onClick={() => navigate("/accueil")}>
+                        <PlayCircleIcon className="play-circle-icon"/>
+                        <p>Add</p>
+                    </div>
+                    <div className="button-menu">
+                        <PlayCircleIcon className="play-circle-icon"/>
+                        <p>Modify</p>
+                    </div>
+                    <div className="button-menu">
+                        <PlayCircleIcon className="play-circle-icon"/>
+                        <p>Delete</p>
+                    </div>
+                    <div className="button-menu" onClick={() => navigate("/accueil")}>
+                        <PlayCircleIcon className="play-circle-icon"/>
+                        <p>Request of modification</p>
+                    </div>
+                </div>
 
+
+            </div>
         </div>
     );
 }

@@ -2,7 +2,7 @@ import {useNavigate} from "react-router-dom";
 import { DataGrid, GridRowSelectionModel } from "@mui/x-data-grid";
 import {useForm} from "react-hook-form";
 import React, {useState} from "react";
-import {Button, Typography} from "@mui/material";
+import {Backdrop, Box, Button, Fade, Modal, Typography} from "@mui/material";
 
 const columns = [
     {
@@ -154,11 +154,26 @@ const rows = [
         "Modified on" : "2022-01-01"
     }
 ]
-export default function FindProduct() {
+
+const style = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
+export default function FindProject() {
     const navigate = useNavigate();
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const [selection, setSelection] = useState<GridRowSelectionModel>([]);
     const [array, setArray] = useState([...rows])
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     function filterArray(e:any, column:any) {
         if(e === ""){
             setArray([...rows]);
@@ -166,15 +181,10 @@ export default function FindProduct() {
         }
         let filter = [];
         for (let i = 0; i < rows.length; i++){
-            console.log(rows)
-            // @ts-ignore
-            console.log(rows[i][column])
-            console.log(e)
             // @ts-ignore
             if(rows[i][column].includes(e))
                 filter.push(rows[i])
         }
-        console.log(filter)
         // @ts-ignore
         setArray([...filter]);
     }
@@ -193,7 +203,7 @@ export default function FindProduct() {
                     padding: "10px"
                 }}>
                     <Typography variant="h2">
-                        Find a product
+                        Find a project
                     </Typography>
                 </div>
                 <div style={{position:"initial"}}>
@@ -227,21 +237,42 @@ export default function FindProduct() {
                     marginBottom: "100px",
                     justifyContent: "flex-end"
                 }}>
-                    <Button variant="outlined" size="large" style={{backgroundColor: "white"}} onClick={() => {if(selection.length > 0) navigate('/piece/?id='+selection[0]); else alert("Selectionner un produit !")}}>
+                    <Button variant="outlined" size="large" style={{backgroundColor: "white"}} onClick={handleOpen}>
                         Détails
-                    </Button>
-                    <Button variant="outlined" size="large" style={{backgroundColor: "white"}}  onClick={() => {if(selection.length > 0) navigate('/piece/?id='+selection[0]); else alert("Selectionner un produit !")}}>
-                        Modifier
                     </Button>
                 </div>
             </div>
             <div className="breadcrumbs">
                 <span onClick={() => navigate("/accueil")}>Home</span>
                 <span className="separator">›</span>
-                <span onClick={() => navigate("/product/")}>Product</span>
+                <span onClick={() => navigate("/project/")}>Project</span>
                 <span className="separator">›</span>
-                <span onClick={() => navigate("/findProduct/")}>Find a product</span>
+                <span onClick={() => navigate("/findProject")}>Find a project</span>
             </div>
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                slots={{ backdrop: Backdrop }}
+                slotProps={{
+                    backdrop: {
+                        timeout: 500,
+                    },
+                }}
+            >
+                <Fade in={open}>
+                    <Box sx={style}>
+                        <Typography id="transition-modal-title" variant="h6" component="h2">
+                            Text in a modal
+                        </Typography>
+                        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                        </Typography>
+                    </Box>
+                </Fade>
+            </Modal>
 
         </div>
     );

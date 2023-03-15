@@ -18,7 +18,7 @@ function CreateProduct() {
                 borderRadius: "10px",
                 padding: "10px"
             }}>
-                <Typography variant="h2" gutterBottom>
+                <Typography variant="h2">
                     Create a product
                 </Typography>
             </div>
@@ -110,7 +110,7 @@ function CreateProduct() {
             <div className="breadcrumbs">
                 <span onClick={() => navigate("/accueil")}>Home</span>
                 <span className="separator">›</span>
-                <span onClick={() => navigate("/Product/")}>Product</span>
+                <span onClick={() => navigate("/product/")}>Product</span>
                 <span className="separator">›</span>
                 <span onClick={() => navigate("/createProduct/")}>Create a product</span>
             </div>
