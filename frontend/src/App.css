@@ -124,18 +124,17 @@
     display: inline;
     text-decoration: underline;
     font-size: 20px;
-    color: white !important;
-    margin-bottom: 10px;
+
 }
 
-.breadcrumbs a {
+.breadcrumbs span {
     text-decoration: none;
-    color: #999;
+    color: white !important;
     transition: color 0.2s;
 }
 
-.breadcrumbs a:hover {
-    color: #555;
+.breadcrumbs span:hover {
+    color: #8d8d8d !important;
 }
 
 .breadcrumbs .separator {

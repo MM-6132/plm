@@ -13,27 +13,33 @@ const columns = [
     },
     {
         field: "Version",
-        headerName: "Version"
+        headerName: "Version",
+        width: 150,
     },
     {
         field: "Product name",
-        headerName: "Product name"
+        headerName: "Product name",
+        width: 200,
     },
     {
         field: "Reference",
-        headerName: "Reference"
+        headerName: "Reference",
+        width: 150,
     },
     {
         field: "Description",
-        headerName: "Description"
+        headerName: "Description",
+        width: 550,
     },
     {
         field: "Added on",
-        headerName: "Added on"
+        headerName: "Added on",
+        width: 150,
     },
     {
         field: "Modified on",
-        headerName: "Modified on"
+        headerName: "Modified on",
+        width: 150,
     }
 ];
 
@@ -152,7 +158,26 @@ export default function FindProduct() {
     const navigate = useNavigate();
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const [selection, setSelection] = useState<GridRowSelectionModel>([]);
-    console.log(selection)
+    const [array, setArray] = useState([...rows])
+    function filterArray(e:any, column:any) {
+        if(e === ""){
+            setArray([...rows]);
+            return;
+        }
+        let filter = [];
+        for (let i = 0; i < rows.length; i++){
+            console.log(rows)
+            // @ts-ignore
+            console.log(rows[i][column])
+            console.log(e)
+            // @ts-ignore
+            if(rows[i][column].includes(e))
+                filter.push(rows[i])
+        }
+        console.log(filter)
+        // @ts-ignore
+        setArray([...filter]);
+    }
     return (
         <div>
             <div style={{
@@ -172,7 +197,7 @@ export default function FindProduct() {
                     </Typography>
                 </div>
                 <div style={{position:"initial"}}>
-                    <input style={{position:"relative", height:"50px", marginLeft:"30px", marginTop:"25px", width:"300%", borderRadius:"10px"}} type="text" placeholder="Recherche ..."/>
+                    <input onChange={(e) => filterArray(e.target.value, "Product name")} style={{position:"relative", height:"50px", marginLeft:"30px", marginTop:"25px", width:"300%", borderRadius:"10px"}} type="text" placeholder="Recherche ..."/>
                 </div>
             </div>
             <div style={{display: "flex", flexDirection: "row"}}>
@@ -186,11 +211,11 @@ export default function FindProduct() {
                 }}>
                     <div style={{height: 600, width: '100%'}}>
                         <DataGrid
-                            rows={rows}
+                            rows={array}
                             columns={columns}
                             checkboxSelection
                             onRowSelectionModelChange={setSelection}
-                            {...rows}
+                            {...array}
                         />
                     </div>
                 </div>

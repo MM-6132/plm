@@ -35,13 +35,13 @@ function Piece() {
                     <p>All documents</p>
                 </div>
             </div>
-            <div className="breadcrumbs">
+            <span className="breadcrumbs">
                 <span onClick={() => navigate("/accueil")}>Home</span>
                 <span className="separator">›</span>
                 <span onClick={() => navigate("/Product/")}>Product</span>
                 <span className="separator">›</span>
                 <span onClick={() => navigate("/piece/")}>Find a product</span>
-            </div>
+            </span>
 
         </div>
     );

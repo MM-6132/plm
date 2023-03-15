@@ -18,25 +18,32 @@ function Product() {
     const animatedText = text.slice(0, index);
 
     return (
-        <div className="grid-duo">
-            <div className="center-element">
-                <div className="window">
-                    <p className="progressive-text">{animatedText}</p>
+        <div>
+            <span className="breadcrumbs">
+                <span onClick={() => navigate("/accueil")}>Home</span>
+                <span className="separator">›</span>
+                <span onClick={() => navigate("/Product/")}>Product</span>
+            </span>
+            <div className="grid-duo">
+                <div className="center-element">
+                    <div className="window">
+                        <p className="progressive-text">{animatedText}</p>
+                    </div>
                 </div>
-            </div>
-            <div className="grid-quatro-line">
-                <div></div>
-                <div className="button-menu" onClick={() => navigate("/findProduct")}>
-                    <PlayCircleIcon className="play-circle-icon"/>
-                    <p>Find a product</p>
-                </div>
-                <div className="button-menu" onClick={() => navigate("/createProduct")}>
-                    <PlayCircleIcon className="play-circle-icon" />
-                    <p>Create a new product</p>
-                </div>
-                <div className="button-menu">
-                    <PlayCircleIcon className="play-circle-icon"/>
-                    <p>Modify an existing product</p>
+                <div className="grid-quatro-line">
+                    <div></div>
+                    <div className="button-menu" onClick={() => navigate("/findProduct")}>
+                        <PlayCircleIcon className="play-circle-icon"/>
+                        <p>Find a product</p>
+                    </div>
+                    <div className="button-menu" onClick={() => navigate("/createProduct")}>
+                        <PlayCircleIcon className="play-circle-icon"/>
+                        <p>Create a new product</p>
+                    </div>
+                    <div className="button-menu">
+                        <PlayCircleIcon className="play-circle-icon"/>
+                        <p>Modify an existing product</p>
+                    </div>
                 </div>
             </div>
         </div>

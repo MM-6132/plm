@@ -25,7 +25,7 @@ function Authorization() {
                 </div>
             </div>
             <div className="grid-quatro-line" >
-                <div className="button-menu" onClick={() => navigate("/piece")}>
+                <div className="button-menu" onClick={() => navigate("/")}>
                     <PlayCircleIcon className="play-circle-icon"/>
                     <p>Add</p>
                 </div>
@@ -37,7 +37,7 @@ function Authorization() {
                     <PlayCircleIcon className="play-circle-icon"/>
                     <p>Delete</p>
                 </div>
-                <div className="button-menu" onClick={() => navigate("/piece")}>
+                <div className="button-menu" onClick={() => navigate("/")}>
                     <PlayCircleIcon className="play-circle-icon"/>
                     <p>Request of modification</p>
                 </div>
