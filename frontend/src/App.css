@@ -39,6 +39,25 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.projectPartIcon{
+    min-width: 75%;
+    min-height: 75%;
+}
+.divProjectPartIcon{
+    width:200px;
+    height:200px;
+    border-radius: 50px;
+    background-color: #00A9EB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row
+}
+.grid-duo75 {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.75fr 0.3fr;
+}
 .button-menu{
     background-color: white;
     height:100px;

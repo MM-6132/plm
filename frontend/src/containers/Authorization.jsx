@@ -43,9 +43,9 @@ function Authorization() {
                         <PlayCircleIcon className="play-circle-icon"/>
                         <p>Delete</p>
                     </div>
-                    <div className="button-menu" onClick={() => navigate("/accueil")}>
+                    <div className="button-menu" onClick={() => navigate("/permissionRequest")}>
                         <PlayCircleIcon className="play-circle-icon"/>
-                        <p>Request of modification</p>
+                        <p>Submission</p>
                     </div>
                 </div>
 

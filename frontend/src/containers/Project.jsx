@@ -22,7 +22,7 @@ function Project() {
             <div className="breadcrumbs">
                 <span onClick={() => navigate("/accueil")}>Home</span>
                 <span className="separator">›</span>
-                <span onClick={() => navigate("/project")}>Product</span>
+                <span onClick={() => navigate("/project")}>Project</span>
             </div>
             <div className="grid-duo">
                 <div className="center-element">
@@ -40,10 +40,7 @@ function Project() {
                         <PlayCircleIcon className="play-circle-icon"/>
                         <p>Create a new project</p>
                     </div>
-                    <div className="button-menu">
-                        <PlayCircleIcon className="play-circle-icon"/>
-                        <p>Modify an existing project</p>
-                    </div>
+
                 </div>
             </div>
         </div>

@@ -40,10 +40,7 @@ function Product() {
                         <PlayCircleIcon className="play-circle-icon"/>
                         <p>Create a new product</p>
                     </div>
-                    <div className="button-menu">
-                        <PlayCircleIcon className="play-circle-icon"/>
-                        <p>Modify an existing product</p>
-                    </div>
+
                 </div>
             </div>
         </div>

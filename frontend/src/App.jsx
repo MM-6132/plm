@@ -11,6 +11,8 @@ import FindProduct from "./containers/FindProduct";
 import SearchFile from "./containers/SearchFile";
 import FindProject from "./containers/FindProject";
 import Project from "./containers/Project";
+import PermissionRequest from "./containers/PermissionRequest";
+import ProjectPart from "./containers/ProjectPart";
 
 function App() {
     return (
@@ -26,6 +28,8 @@ function App() {
                         <Route path='/createProduct' element={<><NavBar/><CreateProduct/></>}/>
                         <Route path='/findProduct' element={<><NavBar/><FindProduct/></>}/>
                         <Route path='/findProject' element={<><NavBar/><FindProject/></>}/>
+                        <Route path='/permissionRequest' element={<><NavBar/><PermissionRequest/></>}/>
+                        <Route path='/projectPart' element={<><NavBar/><ProjectPart/></>}/>
                         <Route path='/searchFile' element={<><NavBar/><SearchFile/></>}/>
                         <Route path='/project' element={<><NavBar/><Project/></>}/>
                     </Routes>
