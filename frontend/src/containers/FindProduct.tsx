@@ -98,6 +98,17 @@ export default function FindProduct() {
         else
             window.alert("Please select a product")
     }
+    function productArray() {
+        // @ts-ignore
+        let renderer = [];
+        renderer.push(<p style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr", fontWeight:"bold", marginLeft:"30px",  marginRight:"30px"}}><span>ID</span> | <span>Reference</span> | <span>Version</span></p>)
+        renderer.push(<div style={{height:"1px", backgroundColor:"black"}}></div>)
+        if(selectForModal["Version"] === 2)
+            renderer.push(<p onClick={() => navigate('/piece/?id='+selectForModal["id"])} style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr", marginLeft:"30px",  marginRight:"30px"}} className="grey-hover"><span>13</span> | <span>{selectForModal["Reference"]}</span> | <span>1</span></p>)
+        // @ts-ignore
+        return renderer;
+    }
+
     const [checked, setChecked] = React.useState([0]);
     const handleToggle = (value: number) => () => {
         const currentIndex = checked.indexOf(value);
@@ -252,6 +263,7 @@ export default function FindProduct() {
                                 </List>
                             </div>
                         </div>
+                        {productArray()}
                     </Box>
                 </Fade>
             </Modal>
