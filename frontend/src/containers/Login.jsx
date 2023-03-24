@@ -30,7 +30,11 @@ export const Login = () => {
     const navigate = useNavigate();
     const theme = createTheme();
     const [users, setUsers] = useState([
-        {password:"azerty", username:"lucas"}
+        {password:"azerty", username:"Lucas"},
+        {password:"azerty", username:"Mickael"},
+        {password:"azerty", username:"Julie"},
+        {password:"azerty", username:"Aurore"},
+        {password:"nzuzi", username:"Jose"}
     ])
     const [credentials,setCredentials] = useState(false)
     const handleSubmit = async (event) => {
@@ -41,8 +45,11 @@ export const Login = () => {
             password: data.get('password'),
         });
         users.map((u) => {
-            if(u.password === data.get('password') && u.username === data.get('username'))
+            if(u.password === data.get('password') && u.username === data.get('username')){
+                sessionStorage.setItem("username", data.get('username'))
                 navigate('/accueil')
+            }
+
         })
         setCredentials(true)
         //const user = await db.collection('users').findOne({username: req.body.username});

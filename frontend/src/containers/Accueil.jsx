@@ -4,7 +4,7 @@ import React, {useEffect} from "react";
 
 function Accueil() {
     const navigate = useNavigate();
-    const [text, setText] = React.useState("Bonjour, Lucas Bechoua");
+    const [text, setText] = React.useState(`Bonjour ` + sessionStorage.getItem("username"));
     const [index, setIndex] = React.useState(0);
 
     useEffect(() => {
