@@ -13,8 +13,12 @@ import FindProject from "./containers/FindProject";
 import Project from "./containers/Project";
 import PermissionRequest from "./containers/PermissionRequest";
 import ProjectPart from "./containers/ProjectPart";
-
+import CreateProject from "./containers/CreateProject";
+import React, {useContext} from "react";
+import ProductContext from "./ProductContext"
 function App() {
+    const {product} = useContext(ProductContext)
+    console.log(product)
     return (
         <div className="App">
             <header className="App-header">
@@ -26,6 +30,7 @@ function App() {
                         <Route path='/product' element={<><NavBar/><Product/></>}/>
                         <Route path='/authorization' element={<><NavBar/><Authorization/></>}/>
                         <Route path='/createProduct' element={<><NavBar/><CreateProduct/></>}/>
+                        <Route path='/createProject' element={<><NavBar/><CreateProject/></>}/>
                         <Route path='/findProduct' element={<><NavBar/><FindProduct/></>}/>
                         <Route path='/findProject' element={<><NavBar/><FindProject/></>}/>
                         <Route path='/permissionRequest' element={<><NavBar/><PermissionRequest/></>}/>

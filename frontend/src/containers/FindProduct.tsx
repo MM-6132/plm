@@ -1,7 +1,8 @@
 import {useNavigate} from "react-router-dom";
-import { DataGrid, GridRowSelectionModel } from "@mui/x-data-grid";
-import {useForm} from "react-hook-form";
-import React, {useState} from "react";
+import {DataGrid, GridRowSelectionModel} from "@mui/x-data-grid";
+import React, {useContext, useState} from "react";
+// @ts-ignore
+import ProductContext from "../ProductContext.js"
 import {
     Backdrop,
     Box,
@@ -10,7 +11,8 @@ import {
     IconButton,
     List,
     ListItem,
-    ListItemButton, ListItemText,
+    ListItemButton,
+    ListItemText,
     Modal,
     Typography
 } from "@mui/material";
@@ -55,117 +57,7 @@ const columns = [
     }
 ];
 
-// NOTE: Pulls in imported json data.
-const rows = [
-    {
-        "id": 1,
-        "Version" : 2,
-        "Product name": "Cylinder Head",
-        "Reference": "RE_00CH000",
-        "Description": "A component of an internal combustion engine that sits above the cylinders on top of the cylinder block.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 2,
-        "Version" : 2,
-        "Product name": "Modified cylinder Head",
-        "Reference": "RE_00CH010",
-        "Description": "A component of an internal combustion engine that sits above the cylinders on top of the cylinder blockwith a modification of 2 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 3,
-        "Version" : 2,
-        "Product name": "Modified cylinder Head",
-        "Reference": "RE_00CH020",
-        "Description": "A component of an internal combustion engine that sits above the cylinders on top of the cylinder block with a modification of 2 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 4,
-        "Version" : 2,
-        "Product name": "Modified cylinder Head",
-        "Reference": "RE_00CH030",
-        "Description": "A component of an internal combustion engine that sits above the cylinders on top of the cylinder block with a modification of 3 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 5,
-        "Version" : 2,
-        "Product name": "Modified cylinder Head",
-        "Reference": "RE_00CH040",
-        "Description": "A component of an internal combustion engine that sits above the cylinders on top of the cylinder block with a modification of 4 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 6,
-        "Version" : 2,
-        "Product name": "Modified cylinder Head",
-        "Reference": "RE_00CH050",
-        "Description": "A component of an internal combustion engine that sits above the cylinders on top of the cylinder block with a modification of 5 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 7,
-        "Version" : 2,
-        "Product name": "Head gasket",
-        "Reference": "RE_00HGO000",
-        "Description": "A gasket that sits between the engine block and cylinder head in an internal combustion engine.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 8,
-        "Version" : 2,
-        "Product name": "Modified head gasket",
-        "Reference": "RE_00HGO010",
-        "Description": "A gasket that sits between the engine block and cylinder head in an internal combustion engine with a modification of 1 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 9,
-        "Version" : 2,
-        "Product name": "Modified head gasket",
-        "Reference": "RE_00HGO020",
-        "Description": "A gasket that sits between the engine block and cylinder head in an internal combustion engine with a modification of 2 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 10,
-        "Version" : 2,
-        "Product name": "Modified head gasket",
-        "Reference": "RE_00HGO030",
-        "Description": "A gasket that sits between the engine block and cylinder head in an internal combustion engine with a modification of 3 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 11,
-        "Version" : 2,
-        "Product name": "Modified head gasket",
-        "Reference": "RE_00HGO040",
-        "Description": "A gasket that sits between the engine block and cylinder head in an internal combustion engine with a modification of 4 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    },
-    {
-        "id": 12,
-        "Version" : 4,
-        "Product name": "Modified head gasket",
-        "Reference": "RE_00HGO050",
-        "Description": "A gasket that sits between the engine block and cylinder head in an internal combustion engine with a modification of 5 millimeters.",
-        "Added on" : "2021-01-01",
-        "Modified on" : "2022-01-01"
-    }
-]
+
 const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -179,26 +71,23 @@ const style = {
 };
 export default function FindProduct() {
     const navigate = useNavigate();
-    const {register, handleSubmit, watch, formState: {errors}} = useForm();
+    // @ts-ignore
+    const {product} = useContext(ProductContext);
+
     const [selection, setSelection] = useState<GridRowSelectionModel>([]);
-    const [array, setArray] = useState([...rows])
+    const [array, setArray] = useState([...product])
     const [open, setOpen] = React.useState(false);
     function filterArray(e:any, column:any) {
         if(e === ""){
-            setArray([...rows]);
+            setArray([...product]);
             return;
         }
         let filter = [];
-        for (let i = 0; i < rows.length; i++){
-            console.log(rows)
+        for (let i = 0; i < product.length; i++){
             // @ts-ignore
-            console.log(rows[i][column])
-            console.log(e)
-            // @ts-ignore
-            if(rows[i][column].includes(e))
-                filter.push(rows[i])
+            if(product[i][column].includes(e))
+                filter.push(product[i])
         }
-        console.log(filter)
         // @ts-ignore
         setArray([...filter]);
     }
@@ -222,7 +111,6 @@ export default function FindProduct() {
 
         setChecked(newChecked);
     };
-    console.log(selection[0])
     // @ts-ignore
     let selectForModal = selection[0] !== undefined ? array[selection[0] - 1] : array[0]
     return (
