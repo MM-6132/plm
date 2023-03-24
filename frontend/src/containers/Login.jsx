@@ -52,15 +52,6 @@ export const Login = () => {
 
         })
         setCredentials(true)
-        //const user = await db.collection('users').findOne({username: req.body.username});
-
-        //const isPasswordValid = await bcrypt.compare(req.body.password, password);
-
-        //if (isPasswordValid) {
-            // Password is valid
-        //} else {
-            // Password is invalid
-        //}
     };
     return (
         <div className="Home">

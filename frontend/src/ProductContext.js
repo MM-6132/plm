@@ -115,7 +115,7 @@ export function ProductProvider({children}) {
     ])
 
     const addToProduct = (product) => {
-        setProduct((prevState) => [...prevState, {product}]);
+        setProduct((prevState) => [...prevState, product]);
     };
 
     // @ts-ignore

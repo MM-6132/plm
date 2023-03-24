@@ -44,14 +44,6 @@ function CreateProject() {
                     </div>
                     <div>
                         <TextField
-                            required
-                            fullWidth
-                            id="id_project"
-                            label="Id project"
-                            defaultValue=""/>
-                    </div>
-                    <div>
-                        <TextField
                             fullWidth
                             required
                             id="description"
