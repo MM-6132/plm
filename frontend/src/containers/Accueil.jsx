@@ -39,10 +39,12 @@ function Accueil() {
                         <PlayCircleIcon className="play-circle-icon"/>
                         <p>Project</p>
                     </div>
+                    {sessionStorage.getItem("username") === "Jose" &&
                     <div className="button-menu" onClick={() => navigate("/authorization")}>
                         <PlayCircleIcon className="play-circle-icon"/>
                         <p>Authorization</p>
                     </div>
+                    }
                 </div>
 
 

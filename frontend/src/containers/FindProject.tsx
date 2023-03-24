@@ -17,6 +17,8 @@ import {
 } from "@mui/material";
 // @ts-ignore
 import ProjectContext from '../ProjectContext'
+// @ts-ignore
+import ProductContext from "../ProductContext";
 
 const columns = [
     {
@@ -75,6 +77,8 @@ export default function FindProject() {
     const navigate = useNavigate();
     // @ts-ignore
     const {project} = useContext(ProjectContext);
+    // @ts-ignore
+    const {product} = useContext(ProductContext);
     const [selection, setSelection] = useState<GridRowSelectionModel>([1]);
     const [array, setArray] = useState([...project])
     const [open, setOpen] = React.useState(false);
@@ -115,9 +119,23 @@ export default function FindProject() {
 
         setChecked(newChecked);
     };
-    console.log(selection[0])
     // @ts-ignore
     let selectForModal = selection[0] !== undefined ? array[selection[0] - 1] : array[0]
+
+    function productArray() {
+        // @ts-ignore
+        let renderer = [];
+        console.log(selection[0])
+        renderer.push(<p style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr", fontWeight:"bold", marginLeft:"30px",  marginRight:"30px"}}><span>ID</span> | <span>Reference</span> | <span>Product Name</span></p>)
+        renderer.push(<div style={{height:"1px", backgroundColor:"black"}}></div>)
+        product.forEach((p:any) =>{
+            console.log(p)
+            if(selection[0] === p["Project id"])
+                renderer.push(<p onClick={() => navigate('/piece/?id='+p["id"])} style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr", marginLeft:"30px",  marginRight:"30px"}} className="grey-hover"><span>{p["id"]}</span> | <span>{p["Reference"]}</span> | <span>{p["Product name"]} </span></p>)
+        })
+        // @ts-ignore
+        return renderer;
+    }
 
     return (
         <div>
@@ -263,6 +281,7 @@ export default function FindProject() {
                         <Button style={{position: "fixed", right: "30px", bottom: "20px"}} variant="contained"
                                 onClick={() => navigate('/projectPart/?name=' + selectForModal["Project name"])}>Show
                             project</Button>
+                        {productArray()}
                     </Box>
                 </Fade>
             </Modal>

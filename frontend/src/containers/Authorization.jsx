@@ -31,6 +31,7 @@ function Authorization() {
                     </div>
                 </div>
                 <div className="grid-quatro-line">
+                    <div></div>
                     <div className="button-menu">
                         <PlayCircleIcon className="play-circle-icon"/>
                         <p>Modify</p>

@@ -39,11 +39,21 @@ function SearchFile() {
                     <Button variant="outlined">Versions</Button>
                     <Button variant="outlined">Etat</Button>
                     <Button variant="outlined">Phase de développement</Button>
+                    <Button
+                        variant="contained"
+                        component="label"
+                    >
+                        Request new file
+                        <input
+                            type="file"
+                            hidden
+                        />
+                    </Button>
 
                 </div>
-                <div style={{maxHeight:"620px", overflow:"hidden"}}>
+                <div style={{maxHeight:"660px", overflow:"hidden"}}>
                     <Typography variant="h6" style={{textDecoration:"underline"}} >
-                        Aperçu :
+                        Overview :
                     </Typography>
                     <div style={{border: "2px solid black"}}>
                     <Document file="/Case Study 2023.pdf">

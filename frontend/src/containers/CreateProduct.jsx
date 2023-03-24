@@ -19,7 +19,7 @@ function CreateProduct() {
     const [reference, setReference] = useState("")
     const [idProject, setIdProject] = useState()
     const [description, setDescription] = useState();
-    const {addToProduct} = useContext(ProductContext)
+    const {addToProduct, product} = useContext(ProductContext)
     const handleChangeProductName = (event: SelectChangeEvent) => {
         setProductName(event.target.value)
     };
@@ -35,7 +35,7 @@ function CreateProduct() {
 
         const formattedToday = dd + '/' + mm + '/' + yyyy;
         addToProduct({
-            "id": Math.floor(Math.random() * 500000000),
+            "id": product.length+1,
             "Version": version,
             "Product name": productName,
             "Reference": reference,

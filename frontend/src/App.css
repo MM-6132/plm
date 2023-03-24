@@ -42,10 +42,22 @@
 .projectPartIcon{
     min-width: 75%;
     min-height: 75%;
+    max-width: 75%;
+    max-height: 75%;
+}
+.hover105:hover{
+    transform:scale(1.05);
+}
+.hover105 {
+    transition: transform 330ms ease-in-out;
+}
+.grey-hover:hover{
+    background-color: rgba(128, 128, 128, 0.2);
+    transform:scale(1.01);
 }
 .divProjectPartIcon{
-    width:200px;
-    height:200px;
+    width:150px;
+    height:150px;
     border-radius: 50px;
     background-color: #00A9EB;
     display: flex;

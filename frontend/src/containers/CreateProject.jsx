@@ -1,12 +1,50 @@
 import {useNavigate} from "react-router-dom";
-import React from "react";
-import {Button, TextField, Typography} from "@mui/material";
-import {useForm} from "react-hook-form";
+import React, {useContext, useState} from "react";
+import {
+    Button,
+    FormControl,
+    InputLabel,
+    MenuItem,
+    Select,
+    SelectChangeEvent,
+    TextField,
+    Typography
+} from "@mui/material";
+import ProjectContext from "../ProjectContext";
 
 function CreateProject() {
     const navigate = useNavigate();
-    const {register, handleSubmit, watch, formState: {errors}} = useForm();
+    const {addtoProject, project} = useContext(ProjectContext)
+    const [projectName, setProjectName] = useState("");
+    const [description, setDescription] = useState();
+    const [date,setDate] = useState();
+    const [reference, setReference] = useState();
+    const [type, setType] = useState()
+    function handleOnSubmit() {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        let mm = today.getMonth() + 1; // Months start at 0!
+        let dd = today.getDate();
 
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+
+        const formattedToday = dd + '/' + mm + '/' + yyyy;
+        addtoProject({
+            "id": project.length + 1,
+            "Project name": projectName,
+            "Reference Project": reference,
+            "Type": type,
+            "Description": description,
+            "Begin at": formattedToday,
+            "End at": dd + '/' + mm + '/' + (yyyy+1),
+        })
+        navigate('/project')
+    }
+
+    const handleChangeTypeProject = (event: SelectChangeEvent) => {
+        setType(event.target.value)
+    };
     return (
         <div>
             <div style={{
@@ -39,23 +77,46 @@ function CreateProject() {
                         <TextField
                             fullWidth
                             required
+                            onChange={(e) => setProjectName(e.target.value)}
                             id="project_name"
                             label="Name of project"/>
                     </div>
+                    <FormControl>
+                        <InputLabel id="demo-simple-select-label">Type</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={type}
+                            onChange={handleChangeTypeProject}
+                            label="Piece type">
+                            <MenuItem value="Creation">Creation</MenuItem>
+                            <MenuItem value="Modification">Modification</MenuItem>
+                            <MenuItem value="Deletion">Deletion</MenuItem>
+                        </Select>
+                    </FormControl>
                     <div>
                         <TextField
                             fullWidth
                             required
+                            onChange={(e) => setDescription(e.target.value)}
                             id="description"
                             label="Description"
                             defaultValue=""/>
                     </div>
                     <div>
-                        <input id="date" type="date"/>
+                        <TextField
+                            fullWidth
+                            required
+                            onChange={(e) => setReference(e.target.value)}
+                            id="reference"
+                            label="Reference"/>
+                    </div>
+                    <div>
+                        <input id="date" type="date" onChange={(e) => setDate(e.target.value)}/>
                     </div>
                 </div>
-                <div style={{display: "flex", justifyContent: "flex-end", marginTop:300}}>
-                    <Button style={{marginTop: "20px", width: "30%"}} onClick={() => navigate('/project')}
+                <div style={{display: "flex", justifyContent: "flex-end", marginTop:400}}>
+                    <Button style={{marginTop: "20px", width: "30%"}} onClick={handleOnSubmit}
                             variant="contained" color="success">
                         Create project
                     </Button>

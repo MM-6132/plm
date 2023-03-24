@@ -96,7 +96,7 @@ export function ProjectProvider({children}) {
         }
     ])
     const addtoProject = (project) => {
-        setProject((prevState) => [...prevState, {project}]);
+        setProject((prevState) => [...prevState, project]);
     };
 
     return (
